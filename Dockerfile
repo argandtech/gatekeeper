@@ -1,4 +1,4 @@
-ARG GO_VERSION=1.16.7
+ARG GO_VERSION=1.23.0
 
 FROM golang:${GO_VERSION}-alpine
 
@@ -14,6 +14,6 @@ WORKDIR ${GOPATH}/src/github.com/${ORG}/${REPO}
 COPY . .
 
 RUN CGO_ENABLED=0 go build . \
-    && mv gatekeeper /go/bin/
+  && mv gatekeeper /go/bin/
 
 ENTRYPOINT ["/go/bin/gatekeeper"]
