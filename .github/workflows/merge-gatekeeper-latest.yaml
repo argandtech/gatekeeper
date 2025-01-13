@@ -8,17 +8,17 @@ on:
 
 jobs:
   gatekeeper:
-    runs-on: ubuntu-latest
+    runs-on: gha-arc
     permissions:
       checks: read
       statuses: read
     steps:
       - name: Check out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Run Merge Gatekeeper
+      - name: Run Gatekeeper
         uses: ./
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

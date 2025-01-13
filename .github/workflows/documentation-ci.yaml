@@ -11,17 +11,17 @@ on:
 jobs:
   importer:
     name: Run Importer Generate for Markdowns
-    runs-on: ubuntu-latest
+    runs-on: gha-arc
     steps:
       - name: Check out
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Setup Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         with:
-          go-version: ">=1.18.0"
+          go-version: "1.23.0"
           check-latest: true
 
       - name: Install Importer
