@@ -26,6 +26,18 @@ jobs:
         with:
           go-version: 1.23.0
 
+      - name: Parse release version
+        id: parse_version
+        run: |
+          version=${GITHUB_REF_NAME#v}
+          major=$(echo "$version" | cut -d. -f1)
+          minor=$(echo "$version" | cut -d. -f2)
+          patch=$(echo "$version" | cut -d. -f3)
+
+          echo "version=$version" >> $GITHUB_ENV
+          echo "major=v$major" >> $GITHUB_ENV
+          echo "minor=v$major.$minor" >> $GITHUB_ENV
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
@@ -34,3 +46,12 @@ jobs:
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          # Push or update tags
+          git tag -f $major
+          git tag -f $minor
