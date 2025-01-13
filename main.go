@@ -6,11 +6,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/upsidr/merge-gatekeeper/internal/cli"
+	"github.com/argandtech/gatekeeper/internal/cli"
 )
 
 var (
-	//go:embed version.txt
 	version string
 )
 
