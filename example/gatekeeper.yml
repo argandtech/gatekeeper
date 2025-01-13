@@ -14,7 +14,7 @@ jobs:
       checks: read
       statuses: read
     steps:
-      - name: Run Merge Gatekeeper
-        uses: upsidr/gatekeeper@v1
+      - name: Run gatekeeper
+        uses: argandtech/gatekeeper@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

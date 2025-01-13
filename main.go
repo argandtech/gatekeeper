@@ -1,3 +1,4 @@
+// Package main is the entry point for the gatekeeper application.
 package main
 
 import (
@@ -13,6 +14,7 @@ var (
 	version string
 )
 
+// main is the entry point for the application.
 func main() {
 	if err := cli.Run(strings.TrimSuffix(version, "\n"), os.Args...); err != nil {
 		fmt.Fprintf(os.Stderr, "failed to execute command: %v", err)
