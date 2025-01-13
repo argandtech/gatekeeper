@@ -1,8 +1,5 @@
 version: 2
 
-signs:
-  - artifacts: checksum
-
 before:
   hooks:
     - go mod tidy
