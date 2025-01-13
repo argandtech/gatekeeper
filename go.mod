@@ -1,6 +1,6 @@
 module github.com/argandtech/gatekeeper
 
-go 1.23.0
+go 1.23.4
 
 require (
 	github.com/google/go-github/v68 v68.0.0
