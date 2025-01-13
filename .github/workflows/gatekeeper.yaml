@@ -8,7 +8,7 @@ on:
 
 jobs:
   gatekeeper:
-    runs-on: gha-arc
+    runs-on: ubuntu-latest
     permissions:
       checks: read
       statuses: read
